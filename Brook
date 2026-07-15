@@ -319,20 +319,6 @@ InfoTab:AddButton({
 
 -- Não copia Skidder, pq eu vou derrubar seu script.(Kita) 
 
-local AdmTab = Window:MakeTab({ "Admin Panel", "apple" })
-
-AdmTab:AddSection({ "O melhor painel admin do mercado" })
-AdmTab:AddSection({ "e claro, com o preço mais baixo de todos." })
-AdmTab:AddSection({ "Entre No Discord imediatamente clicando em "Join" " })
-AdmTab:AddSection({ "e depois cole o link no chrome." })
-
-AdmTab:AddDiscordInvite({
-    Name = "buy your admin panel",
-    Description = "Compre seu painel admin abaixo",
-    Logo = "rbxassetid://117359201059543",
-    Invite = "https://discord.gg/kitk4t",
-})
-
 local ShadersTab = Window:MakeTab({ "Shaders", "server" })
 ShadersTab:AddSection({ "Shaders" })
 ShadersTab:AddSection({ "Type 1 (Client-Sided)" })
