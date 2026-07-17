@@ -193,7 +193,7 @@ print("Esse Script tem copyright, boa sorte.")
 -- Window
 local Window = Libary:MakeWindow({
    Title = WindowTitle,
-   SubTitle = "by KitK4t Studios",
+   SubTitle = "Script a venda, acesse o discord.",
    SaveFolder = "lowzin"
 })
 
@@ -256,11 +256,11 @@ InfoTab:AddDiscordInvite({
    Name = "KitK4t Studios",
    Description = "Entregue para adquirir o melhor painel adm do cenario!",
    Logo = "rbxassetid://78887700340952",
-   Invite = "https://discord.gg/GNjq644ARw",
+   Invite = "https://discord.gg/TBYFnj9GMp",
 })
 
 InfoTab:AddSection({ "Credits" })
-InfoTab:AddParagraph({ "Owner", "Bazuka and Sak" })
+InfoTab:AddParagraph({ "Owner", "Bazuka" })
 InfoTab:AddParagraph({ "Programmers", "KitK4t Studios" })
 
 local Players = game:GetService("Players")
