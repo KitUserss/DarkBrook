@@ -52,7 +52,7 @@ local HUB_NAME = DH()
 
 -- Donos
 local owners = {
-   ["Breno010L"] = true,
+   ["adminbrookhavenr"] = true,
    ["RUANRODRIGO121121"] = true
 }
 
