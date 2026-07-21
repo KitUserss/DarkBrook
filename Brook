@@ -57,7 +57,7 @@ local owners = {
 }
 
 -- Líder
-local leaderName = "lushmart"
+local leaderName = "adminbrookhavenr"
 
 -- Define role dinamicamente
 local RPName = "[ " .. HUB_NAME .. " User ]"
