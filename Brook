@@ -53,7 +53,7 @@ local HUB_NAME = DH()
 -- Donos
 local owners = {
    ["adminbrookhavenr"] = true,
-   ["RUANRODRIGO121121"] = true
+   ["StaffordMakayla783"] = true
 }
 
 -- Líder
@@ -193,7 +193,7 @@ print("Esse Script tem copyright, boa sorte.")
 -- Window
 local Window = Libary:MakeWindow({
    Title = WindowTitle,
-   SubTitle = "Script a venda, acesse o discord.",
+   SubTitle = "by: Bazuka",
    SaveFolder = "lowzin"
 })
 
@@ -215,7 +215,7 @@ task.delay(1, function()
         {
            "Discord",
            function()
-              local discordLink = "https://discord.gg/GNjq644ARw"
+              local discordLink = "https://discord.gg/TBYFnj9GMp"
               if setclipboard then
                 setclipboard(discordLink)
                 Libary:Notify({
