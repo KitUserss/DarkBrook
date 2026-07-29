@@ -254,14 +254,14 @@ InfoTab:AddSection({ "Internet Things" })
 
 InfoTab:AddDiscordInvite({
    Name = "KitK4t Studios",
-   Description = "Entregue para adquirir o melhor painel adm do cenario!",
+   Description = "Entre para adquirir o melhor painel adm do cenario!",
    Logo = "rbxassetid://78887700340952",
    Invite = "https://discord.gg/TBYFnj9GMp",
 })
 
 InfoTab:AddSection({ "Credits" })
-InfoTab:AddParagraph({ "Owner", "Bazuka" })
-InfoTab:AddParagraph({ "Programmers", "KitK4t Studios" })
+InfoTab:AddParagraph({ "Owner", "Victor" })
+InfoTab:AddParagraph({ "Programmer", "Bazuka" })
 
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
