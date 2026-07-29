@@ -317,6 +317,209 @@ InfoTab:AddButton({
    end
 })
 
+local EveTab = Window:MakeTab({ "Events", "box" })
+
+local ativo = false
+
+EveTab:AddToggle({
+    Name = "Auto Collect Tickets",
+    Default = false,
+    Callback = function(value)
+        ativo = value
+
+        if ativo then
+            task.spawn(function()
+                while ativo do
+                    local character = player.Character or player.CharacterAdded:Wait()
+                    local rootPart = character:FindFirstChild("HumanoidRootPart")
+                    
+                    if rootPart then
+                        for _, obj in pairs(workspace:GetDescendants()) do
+                            if not ativo then break end
+
+                            if obj.Name:lower():find("ticket") then
+                                local targetPos
+
+                                if obj:IsA("Model") then
+                                    targetPos = obj:GetPivot().Position
+                                elseif obj:IsA("BasePart") or obj:IsA("MeshPart") then
+                                    targetPos = obj.Position
+                                end
+
+                                if targetPos then
+                                    rootPart.CFrame = CFrame.new(targetPos + Vector3.new(0, 2, 0))
+                                    task.wait(0.3) -- velocidade (pode diminuir se quiser mais rápido)
+                                end
+                            end
+                        end
+                    end
+
+                    task.wait(0.2) -- evita travar o jogo
+                end
+            end)
+        end
+    end
+})
+
+local Workspace = game:GetService("Workspace")
+local Players = game:GetService("Players")
+
+local player = Players.LocalPlayer
+
+local balloonPopFolder = Workspace:WaitForChild("SummerCarnival")
+                                  :WaitForChild("Map")
+                                  :WaitForChild("Attractions")
+                                  :WaitForChild("BalloonPop")
+
+local shotRemote = balloonPopFolder:WaitForChild("Shot")
+
+local ativo = false
+
+local function isBalloon(object)
+    return object:IsA("BasePart") or object:IsA("Model")
+end
+
+local function autoShootBalloons()
+    for _, item in ipairs(balloonPopFolder:GetDescendants()) do
+        if not ativo then return end
+        if isBalloon(item) and string.find(item.Name:lower(), "balloon") then
+            shotRemote:FireServer(item)
+            task.wait(0.03)
+        end
+    end
+end
+
+EveTab:AddToggle({
+    Name = "Auto Balloon",
+    Default = false,
+    Callback = function(value)
+        ativo = value
+
+        if ativo then
+            -- LOOP TIRO
+            task.spawn(function()
+                while ativo do
+                    autoShootBalloons()
+                    task.wait(0.05)
+                end
+            end)
+
+            -- LOOP TP
+            task.spawn(function()
+                while ativo do
+                    local character = player.Character
+                    if character and character:FindFirstChild("HumanoidRootPart") then
+                        character.HumanoidRootPart.CFrame = CFrame.new(142, 3, -264)
+                    end
+                    task.wait(0.2)
+                end
+            end)
+        end
+    end
+})
+
+_G.BasketballFarm = false
+
+local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local LocalPlayer = Players.LocalPlayer
+
+local Tp = Vector3.new(152, 4, -217)
+
+local function getHoop()
+	local sc = Workspace:FindFirstChild("SummerCarnival")
+	if not sc then return end
+	
+	local map = sc:FindFirstChild("Map")
+	if not map then return end
+	
+	local att = map:FindFirstChild("Attractions")
+	if not att then return end
+
+	for _, v in pairs(att:GetChildren()) do
+		local hoop = v:FindFirstChild("Hoop")
+		if hoop then
+			local part = hoop:FindFirstChildWhichIsA("BasePart")
+			if part then
+				return part
+			end
+		end
+	end
+end
+
+local function getBallClick()
+	local sc = Workspace:FindFirstChild("SummerCarnival")
+	if not sc then return end
+	
+	local balls = sc:FindFirstChild("Map")
+		and sc.Map:FindFirstChild("Attractions")
+		and sc.Map.Attractions:FindFirstChild("BasketballMachine")
+		and sc.Map.Attractions.BasketballMachine:FindFirstChild("Balls")
+
+	if balls then
+		for _, ball in pairs(balls:GetChildren()) do
+			local cd = ball:FindFirstChildOfClass("ClickDetector")
+			if cd then
+				return cd
+			end
+		end
+	end
+end
+
+EveTab:AddToggle({
+	Name = "Auto Basketball Farm",
+	Default = false,
+	Callback = function(v)
+		_G.BasketballFarm = v
+
+		while _G.BasketballFarm do
+			local char = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+			local hrp = char:FindFirstChild("HumanoidRootPart")
+
+			if hrp then
+				local hoop = getHoop()
+
+				-- 🧠 VERIFICA DISTÂNCIA ANTES DE TELEPORTAR
+				if hoop then
+					local dist = (hrp.Position - Tp).Magnitude
+					if dist > 3 then -- só teleporta se estiver longe
+						hrp.CFrame = CFrame.lookAt(Tp, hoop.Position)
+					end
+				else
+					if (hrp.Position - Tp).Magnitude > 3 then
+						hrp.CFrame = CFrame.new(Tp)
+					end
+				end
+
+				-- PEGA BOLA
+				local cd = getBallClick()
+				if cd and fireclickdetector then
+					pcall(function()
+						fireclickdetector(cd)
+					end)
+				end
+
+				-- ARREMESSA
+				local minigame = char:FindFirstChild("MinigameBasketball")
+				if minigame then
+					local remote = minigame:FindFirstChild("ThrowBasketball")
+					if remote then
+						pcall(function()
+							if hoop then
+								remote:FireServer(hoop.Position, CFrame.lookAt(Tp, hoop.Position))
+							else
+								remote:FireServer()
+							end
+						end)
+					end
+				end
+			end
+
+			task.wait(0.3)
+		end
+	end
+})
+
 -- Não copia Skidder, pq eu vou derrubar seu script.(Kita) 
 
 local ShadersTab = Window:MakeTab({ "Shaders", "server" })
