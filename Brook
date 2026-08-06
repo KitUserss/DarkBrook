@@ -5329,8 +5329,8 @@ createMusicDropdown("Musicas e Memes Aleatorio", {
         {name = "ingles bus (fling ou kill bus)", id = "123268013026823"},
         {name = "MIKU MIKU HATSUNE", id = "112783541496955"},
         {name = "Escalando a Seleção Brasileira para a Copa", id = "116546457407236"},
-        {name = "", id = ""},
-        {name = "", id = ""},
+        {name = "por supuesto deitei no seu sorriso", id = "8057071414"},
+        {name = "baile do cinga do 12", id = "6514652603"},
         {name = "", id = ""},
         {name = "", id = ""},
         {name = "", id = ""}
