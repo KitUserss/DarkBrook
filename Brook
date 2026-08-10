@@ -215,7 +215,7 @@ task.delay(1, function()
         {
            "Discord",
            function()
-              local discordLink = "https://discord.gg/TBYFnj9GMp"
+              local discordLink = "https://discord.gg/xB6j8qpdw"
               if setclipboard then
                 setclipboard(discordLink)
                 Libary:Notify({
@@ -256,12 +256,12 @@ InfoTab:AddDiscordInvite({
    Name = "KitK4t Studios",
    Description = "Entre para adquirir o melhor painel adm do cenario!",
    Logo = "rbxassetid://78887700340952",
-   Invite = "https://discord.gg/TBYFnj9GMp",
+   Invite = "https://discord.gg/xB6j8qpdw",
 })
 
 InfoTab:AddSection({ "Credits" })
 InfoTab:AddParagraph({ "Owner", "Victor" })
-InfoTab:AddParagraph({ "Programmer", "Bazuka" })
+InfoTab:AddParagraph({ "Programmer", "frost" })
 
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
