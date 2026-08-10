@@ -193,7 +193,7 @@ print("Esse Script tem copyright, boa sorte.")
 -- Window
 local Window = Libary:MakeWindow({
    Title = WindowTitle,
-   SubTitle = "by: Bazuka",
+   SubTitle = "by: victor",
    SaveFolder = "lowzin"
 })
 
