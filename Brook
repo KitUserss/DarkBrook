@@ -253,8 +253,8 @@ local InfoTab = Window:MakeTab({ "Informations", "info" })
 InfoTab:AddSection({ "Internet Things" })
 
 InfoTab:AddDiscordInvite({
-   Name = "KitK4t Studios",
-   Description = "Entre para adquirir o melhor painel adm do cenario!",
+   Name = "dark hub",
+   Description = "vem pra nossa comunidade do kitk4t♡!",
    Logo = "rbxassetid://78887700340952",
    Invite = "https://discord.gg/TBYFnj9GMp",
 })
