@@ -210,12 +210,12 @@ Window:AddMinimizeButton({
 task.delay(1, function()
    Window:Dialog({
       Title = "Painel Admin Notification",
-      Text = "compre seu painel admin no discord com o melhor preÃ§o",
+      Text = "compre seu painel admin no discord nos preços mais baratos",
       Options = {
         {
            "Discord",
            function()
-              local discordLink = "https://discord.gg/TBYFnj9GMp"
+              local discordLink = "https://discord.gg/99S8cAjxb"
               if setclipboard then
                 setclipboard(discordLink)
                 Libary:Notify({
