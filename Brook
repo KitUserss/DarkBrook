@@ -215,7 +215,7 @@ task.delay(1, function()
         {
            "Discord",
            function()
-              local discordLink = "https://discord.gg/99S8cAjxb"
+              local discordLink = "https://discord.gg/799rB7wf7J"
               if setclipboard then
                 setclipboard(discordLink)
                 Libary:Notify({
@@ -256,7 +256,7 @@ InfoTab:AddDiscordInvite({
    Name = "dark hub",
    Description = "vem pra nossa comunidade do kitk4t♡!",
    Logo = "rbxassetid://78887700340952",
-   Invite = "https://discord.gg/TBYFnj9GMp",
+   Invite = "https://discord.gg/799rB7wf7J",
 })
 
 InfoTab:AddSection({ "Credits" })
